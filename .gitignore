@@ -1,0 +1,13 @@
+# Uncomment this to ignore upload of this folders anf files
+# ++++++++++++++++++++++++++
+node_modules/
+build/
+*.json
+# ++++++++++++++++++++++++++
+pnpm-lock.yaml
+gulpfile.esm.js
+.prettierrc
+.eslintrc.json
+.browserslistrc
+.babelrc
+screenshot

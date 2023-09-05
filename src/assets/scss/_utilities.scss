@@ -1,0 +1,200 @@
+@use './mixin' as *;
+
+/*===============================================
+================ UTILITY CLASSES ================
+=================================================*/
+//================ Colors ================//
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+.fg-primary {
+  color: var(--fg-primary);
+}
+
+//=========== Display ============
+.backdrop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+
+  background-color: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  width: min(100%, rem(1440px));
+  margin-inline: auto;
+  padding-inline: var(--padding-inline, 1rem);
+}
+
+.container-fluid {
+  padding-inline: 0;
+}
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  background-color: hsl(0 0% 100% / 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.align-center {
+  align-items: center;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.strap {
+  background-color: var(--clr-dark);
+  color: var(--clr-white);
+}
+
+// Utility
+
+.text-center {
+  text-align: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font: inherit;
+  line-height: 1;
+  background-color: var(--clr-accent-40);
+  color: var(--clr-white);
+  padding-block: var(--btn-padding-block, rem(8px));
+  padding-inline: var(--btn-padding-inline, rem(20px));
+  border-radius: var(--radius, rem(10px));
+
+  transition: all var(--trasition-slow);
+  @include hover {
+    background-color: var(--clr-white);
+    color: var(--clr-accent-40);
+    border: 2px solid var(--clr-accent-40);
+    transition: all var(--trasition-slow);
+  }
+}
+
+a:focus {
+  outline: 2px dotted var(--clr-accent-40);
+  outline-offset: 3px;
+}
+
+.link {
+  display: inline-block;
+  color: inherit;
+  font-size: var(--fs-300);
+  letter-spacing: 1px;
+  transition: color var(--transition-fast);
+
+  @include hover {
+    color: var(--clr-accent-40);
+  }
+}
+
+.carousel {
+  width: 100%;
+  height: rem(300px);
+  position: relative;
+
+  &__btn {
+    cursor: pointer;
+    width: rem(36px);
+    height: rem(36px);
+    background-color: var(--clr-neutral-40);
+    border-radius: 50%;
+    font-size: rem(20px);
+    position: relative;
+
+    z-index: 10;
+    .arrow {
+      width: 40%;
+      height: 40%;
+      background-color: transparent;
+      border-right: 2px solid var(--clr-accent-40);
+      border-bottom: 2px solid var(--clr-accent-40);
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @include hover {
+      border: 2px dotted var(--clr-accent-40);
+    }
+  }
+  .btn-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) rotate(135deg);
+    .arrow {
+      left: 25%;
+      transform: translateY(-65%);
+    }
+  }
+  .btn-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+.slide {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: all 350ms;
+  @include mq-min(small) {
+    width: 50%;
+  }
+  @include mq-min(medium) {
+    width: 33.33%;
+  }
+}

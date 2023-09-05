@@ -1,0 +1,87 @@
+@use '../mixin' as *;
+/*================ Footer Styling ================*/
+.footer {
+  &__wraper {
+    padding-block: rem(30px);
+    padding-inline: var(--padding-600);
+
+    display: grid;
+    gap: 1.625rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    @include mq-min(small) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq-min(medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__logo {
+    max-width: rem(160px);
+  }
+
+  &__links {
+    h3 {
+      font-size: var(--fs-900);
+      font-weight: var(--fw-regular);
+      margin-block-end: rem(16px);
+    }
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      li {
+        width: 50%;
+        a {
+          padding-block: rem(10px);
+        }
+      }
+    }
+  }
+
+  &__info {
+    text-align: left;
+    h2 {
+      font-size: rem(20px);
+      font-weight: var(--fw-regular);
+    }
+    &.flex-column {
+      align-items: flex-start;
+    }
+    @include mq-min(small) {
+      grid-column: span 2;
+    }
+    @include mq-min(medium) {
+      grid-column: span 1;
+    }
+  }
+
+  &__credit {
+    --padding-inline: var(--padding-600);
+    --gap: 0.425rem;
+
+    background-color: white;
+    padding-block: rem(20px);
+
+    .flex {
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      .flex-column {
+        --gap: 0;
+      }
+    }
+    .credit-cards {
+      margin-inline: auto;
+      @include mq-min(small) {
+        margin-inline-end: 0;
+      }
+      img {
+        width: rem(42px);
+        height: rem(28px);
+        border: 2px solid #bbb;
+        border-radius: rem(6px);
+      }
+    }
+  }
+}

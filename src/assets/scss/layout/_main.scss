@@ -1,0 +1,164 @@
+@use '../mixin' as *;
+/*================ Main Styling ================*/
+.main {
+  --margin-block: 1.625rem;
+
+  & > * {
+    margin-block-start: var(--margin-block);
+  }
+
+  .boosted-options {
+    --padding-inline: var(--padding-600);
+    @include mq-min(medium) {
+      --padding-inline: var(--padding-900);
+    }
+  }
+  .boosted {
+    &__content {
+      margin-block-end: rem(20px);
+      text-align: center;
+      h2 {
+        font-size: var(--fs-700);
+        padding-block-end: rem(10px);
+      }
+      p {
+        max-width: 72ch;
+        margin-inline: auto;
+        line-height: var(--line-height-tall);
+      }
+    }
+  }
+
+  .boosted-sketboards {
+    .hero {
+      &__text {
+        padding-block: 0 rem(20px);
+        h2 {
+          padding-block: rem(10px);
+        }
+      }
+    }
+  }
+
+  .boosted-revs {
+    --padding-inline: var(--padding-600);
+    @include mq-min(medium) {
+      --padding-inline: var(--padding-900);
+    }
+  }
+  .revs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: rem(12px);
+    @include mq-min(small) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include mq-min(medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    & > * {
+      justify-self: center;
+    }
+    img {
+      width: 100%;
+    }
+    &__details {
+      margin-block: auto;
+      @include mq-min(medium) {
+        margin-inline-start: rem(12px);
+      }
+      h2 {
+        font-size: rem(32px);
+        font-weight: var(--fw-regular);
+      }
+      p {
+        padding-block-end: rem(12px);
+        line-height: var(--line-height-tall);
+      }
+      .btn {
+        --padding-block: 0.5rem;
+        --padding-inline: 1.125rem;
+        width: max-content;
+        margin-inline: auto;
+      }
+
+      @include mq-max(medium) {
+        grid-row: 1/2;
+        grid-column: 1/3;
+      }
+      @include mq-max(small) {
+        grid-row: 1/2;
+        grid-column: 1/2;
+      }
+    }
+  }
+
+  .boosted-shop {
+    --img-height: 30rem;
+    --gap: 0.5rem;
+
+    .img__group {
+      @include mq-min(small) {
+        justify-content: space-between;
+        flex-flow: row nowrap;
+      }
+    }
+  }
+
+  .boosted-features {
+    --gap: clamp(1rem, 2.778vw, 2.5rem);
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    padding-block: rem(20px);
+    .flex {
+      justify-content: center;
+      flex-wrap: wrap;
+      @include mq-min(small) {
+        flex-wrap: nowrap;
+      }
+    }
+    .feature {
+      max-width: 36ch;
+      &-icon {
+        width: rem(80px);
+        height: rem(80px);
+      }
+      h2,
+      h3 {
+        font-size: var(--fs-700);
+      }
+    }
+  }
+
+  .boosted-accessories {
+    --padding-inline: var(--padding-600);
+    background-color: var(--clr-white);
+    h2 {
+      font-size: var(--fs-900);
+      padding-block: rem(30px) rem(50px);
+      border-bottom: 2px solid var(--bg-primary);
+    }
+  }
+  .accessory {
+    --gap: 0.625rem;
+    h4 {
+      font-size: var(--fs-600);
+      color: var(--clr-accent-40);
+    }
+  }
+  .price {
+    .old {
+      color: rgb(0 0 0 / 0.8);
+      text-decoration: line-through;
+    }
+    .new {
+      font-size: 110%;
+      color: var(--clr-accent-40);
+      font-weight: var(--fw-bold);
+    }
+    .sold {
+      color: rgb(0 0 0 / 0.8);
+    }
+  }
+}

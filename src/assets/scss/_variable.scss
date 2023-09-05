@@ -1,0 +1,44 @@
+@use './mixin' as *;
+
+/*===============================================
+================== VARIABLE =====================
+=================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+// font-family: 'Roboto', sans-serif;
+
+:root {
+  --ff-primary: 'Roboto', sans-serif;
+  font-size: 16px;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fs-300: 0.875rem; //14px
+  --fs-400: 0.9375rem; //15px
+  --fs-600: clamp(1.125rem, 1.875vw, 1.6875rem); //25px
+  --fs-700: clamp(1.5rem, 1.736vw, 2.5rem); //32px
+  --fs-900: clamp(1.6875rem, 3.056vw, 2.75rem); //44px
+  //==============================
+
+  --clr-dark: rgb(0, 0, 0);
+  --clr-white: hsl(0 0% 100%);
+  --clr-accent-40: hsl(7, 100%, 60%);
+  --clr-accent-30: hsl(7, 100%, 70%);
+  --clr-neutral-40: hsl(0, 0%, 88%);
+
+  --bg-primary: var(--clr-neutral-40);
+  --fg-primary: var(--clr-dark);
+
+  --line-height-regular: 1;
+  --line-height-midtall: 1.2;
+  --line-height-tall: 1.5;
+
+  --padding-600: clamp(0.125rem, 3.06vw, 2.75rem);
+  --padding-900: clamp(0.125rem, 9.028vw, 8.125rem);
+
+  --transition-time-fast: 250ms;
+  --transition-time-slow: 550ms;
+  --transiiton-func: ease-in-out;
+
+  --transition-fast: var(--transition-time-fast) var(--transiiton-func);
+  --transition-slow: var(--transition-time-slow) var(--transiiton-func);
+}
